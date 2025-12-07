@@ -1,42 +1,112 @@
+# 🏟️ Ministry of Youth & Sports Management System
 
-# 🏛️ Ministry of Youth & Sports — National Management Platform
+A comprehensive digital ecosystem designed to modernize and digitize the operations of the Ministry of Youth and Sports.
+This system bridges the gap between the ministry and the public through a user-friendly **mobile application**, while streamlining management and administrative workflows through a powerful **web dashboard**.
+All components are powered by a secure and scalable **backend API**.
 
-A full-scale digital transformation system for the **Ministry of Youth & Sports in Egypt**, connecting all youth and sports centers across the nation into one unified digital ecosystem.  
+---
 
-This platform consists of three main repositories:
-1. 🌐 **Frontend (Next.js)** — Admin dashboard & public website  
-2. ⚙️ **Backend (NestJS)** — Secure API and data management layer  
-3. 📱 **Mobile App (Flutter)** — Cross-platform mobile experience  
+## 🌟 Project Overview
+
+The core mission of this project is to:
+
+* Enhance accessibility to youth and sports facilities.
+* Promote transparency and engagement with the public.
+* Digitize administrative operations and content management.
+* Provide an integrated platform for information, activities, and communication.
+
+The system is built on **three synchronized tracks**:
+
+1. **Mobile Application (Public Portal)**
+2. **Web Dashboard (Admin Panel)**
+3. **Backend API (Central Logic & Data Source)**
+
+---
+
+## 🚀 Key Features
+
+### 📱 Mobile Application (Citizen Portal)
+
+A centralized hub for the community to explore youth and sports services.
+
+#### **Directory Services**
+
+* Sports Clubs listings
+* Youth Centers with details and locations
+* Specialized Technology Clubs & Open Clubs
+* Swimming pools and open stadiums directory
+
+#### **Engagement**
+
+* Real-time news feed and announcements
+* Browse and view upcoming activities and events
+* Quick access contact channels with the ministry
+
+#### **User Experience**
+
+* Integrated map directions (external maps)
+* Rich media: sliders, galleries, and detailed pages
+
+---
+
+### 💻 Web Dashboard (Admin Panel)
+
+A complete management system for ministry administrators.
+
+#### **Core Features**
+
+* **Content Management:** Create / update / delete news and activities
+* **Facility Management:** Manage youth centers, clubs, and facility data
+* **Secure Authentication:** Role-based access, JWT-based
+* **Interactive Maps:** Visual management of location data
+* **Real-time updates** for mobile clients
+
+---
+
+### ⚙️ Backend API
+
+The backbone that powers both the mobile and web applications.
+
+#### **Key Functionalities**
+
+* **RESTful API Architecture**
+* JWT authentication and session management
+* Rate limiting and API security
+* File uploads (images & media)
+* Entities: Activities, News, Centers, Users, Federations, etc.
+
+---
+
+## 🛠️ Technology Stack
+
+| Component        | Technology            | Key Libraries                                       |
+| ---------------- | --------------------- | --------------------------------------------------- |
+| **Client (Web)** | Next.js 15 (React 19) | TypeScript, Tailwind CSS 4, Radix UI, GSAP, Leaflet |
+| **Mobile App**   | Flutter               | Dart, BLoC (State Management), Dio                  |
+| **Backend**      | Node.js / Express     | MongoDB (Mongoose), JWT, Bcrypt, Multer             |
+
+---
+
+## 📂 High-Level Project Structure
+
+```
+project/
+├─ client/         # Next.js web application
+├─ backend/        # Express.js backend API
+└─ mobile_app/     # Flutter mobile application
+```
+
+---
+
+# 🧩 Architecture & Folder Structure
+
+Below is the detailed breakdown for each track.
 
 ---
 
 ## 🌐 Frontend (Next.js)
 
-A production-ready **Next.js (App Router)** client that powers both the public landing website and the admin dashboard.  
-It’s designed with scalability, accessibility, and RTL (Arabic) support in mind.
-
-### 🚀 Features
-- Interactive landing pages with dynamic sections (hero, features, team, etc.)  
-- Admin dashboard for managing centers, activities, and news  
-- Authentication system with JWT  
-- Form validation using **React Hook Form** + **Zod**  
-- Real-time notifications via **Sonner**  
-- Responsive Arabic-first UI (RTL support)  
-- Integration with OpenStreetMap for location display  
-
-### 🛠️ Tech Stack
-- **Next.js (App Router)**  
-- **React.js + TypeScript**  
-- **Tailwind CSS**  
-- **Zod + React Hook Form**  
-- **Axios**  
-- **Sonner**  
-- **Lucide Icons**  
-- **OpenStreetMap Integration**
-
-### 📂 Folder Structure
 ```
-
 src/
 ├─ app/                     # Next.js routes (landing, dashboard, auth)
 ├─ components/
@@ -49,155 +119,55 @@ src/
 ├─ providers/               # Auth and context providers
 ├─ types/                   # TypeScript interfaces and types
 └─ utils/                   # API utilities and helpers
-
-````
-
-### ⚙️ Setup
-```bash
-git clone https://github.com/<org>/ministry-frontend.git
-cd ministry-frontend
-npm install
-npm run dev
-````
-
-> Runs locally at: `http://localhost:3000`
+```
 
 ---
 
-## ⚙️ Backend (NestJS)
-
-A powerful **NestJS** backend built with a modular architecture and connected to **PostgreSQL** using **Prisma ORM**.
-It provides secure endpoints, user authentication, and robust data management for all clients (web & mobile).
-
-### 🚀 Features
-
-* Modular API structure (Centers, Activities, News, Auth, Users)
-* JWT authentication and role-based authorization
-* File upload support using **Multer**
-* PostgreSQL database with **Prisma ORM**
-* RESTful APIs with Swagger documentation
-* Docker-ready configuration for easy deployment
-
-### 🛠️ Tech Stack
-
-* **NestJS**
-* **TypeScript**
-* **PostgreSQL + Prisma ORM**
-* **JWT Authentication**
-* **Multer**
-* **Docker**
-* **Swagger**
-
-### 📂 Folder Structure
+## 🖥️ Backend (Node.js / Express with Prisma)
 
 ```
 src/
- ├─ app.module.ts            # Root module
- ├─ main.ts                  # App entry point
- ├─ auth/                    # Authentication logic (JWT, guards)
- ├─ users/                   # User and role management
- ├─ centers/                 # Centers CRUD operations
- ├─ activities/              # Activities management
- ├─ news/                    # News module
- ├─ files/                   # File uploads and storage
- ├─ common/                  # Shared utilities and decorators
- ├─ prisma/                  # Prisma schema and service
- └─ config/                  # Environment and settings
+├─ app.module.ts            # Root module
+├─ main.ts                  # App entry point
+├─ auth/                    # Authentication (JWT, guards)
+├─ users/                   # User and role management
+├─ centers/                 # Centers CRUD operations
+├─ activities/              # Activities management
+├─ news/                    # News module
+├─ files/                   # File uploads and storage
+├─ common/                  # Shared utilities and decorators
+├─ prisma/                  # Prisma schema and service
+└─ config/                  # Environment and settings
 ```
-
-### ⚙️ Setup
-
-```bash
-git clone https://github.com/<org>/ministry-backend.git
-cd ministry-backend
-npm install
-npx prisma migrate dev
-npm run start:dev
-```
-
-> API runs locally at: `http://localhost:5000`
-> Swagger Docs: `http://localhost:5000/api/docs`
 
 ---
 
-## 📱 Mobile App (Flutter)
-
-A **Flutter**-based mobile and desktop application designed to make youth and sports services accessible to everyone.
-It supports Android, iOS, Web, and Desktop platforms.
-
-### 🚀 Features
-
-* Explore youth centers, clubs, and federations
-* Access to activities, swimming pools, and stadiums
-* Latest news and updates from the ministry
-* Maps integration for directions and navigation
-* Offline JSON-based data for enhanced performance
-* Consistent responsive UI for all platforms
-
-### 🛠️ Tech Stack
-
-* **Flutter (Dart)**
-* **Cubit / Bloc State Management**
-* **JSON Data Assets**
-* **Google Maps Integration**
-* **Cross-Platform Support** (Android, iOS, Web, Desktop)
-
-### 📂 Folder Structure
+## 📱 Mobile (Flutter)
 
 ```
-android/        # Android native files
-ios/            # iOS native files
+android/        # Android native configuration
+ios/            # iOS native configuration
 lib/
- ├─ models/     # Data models
- ├─ modules/    # Screens (home, clubs, activities, etc.)
- ├─ layout/     # State management (Cubit/Bloc)
- ├─ shared/     # Common components, themes, and networking
- └─ main.dart   # App entry point
-assets/         # JSON datasets (centers, federations, etc.)
-test/           # Unit and widget tests
+├─ models/      # Data models
+├─ modules/     # Screens (home, clubs, activities, etc.)
+├─ layout/      # State management (Cubit/Bloc)
+├─ shared/      # Common components, themes, helpers, networking
+└─ main.dart    # App entry point
+assets/         # Local JSON datasets (centers, clubs, federations)
+test/           # Unit & widget tests
 web/            # Web app entry
-windows/        # Windows build
-macos/          # macOS build
-linux/          # Linux build
-```
-
-### ⚙️ Setup
-
-```bash
-git clone https://github.com/<org>/ministry-mobile.git
-cd ministry-mobile
-flutter pub get
-flutter run
+windows/        # Desktop build target
+macos/
+linux/
 ```
 
 ---
 
-## 🧩 System Architecture Overview
+## 📑 Conclusion
 
-```
-+--------------------------------------------------------------+
-|                      MINISTRY PLATFORM                       |
-+----------------------+--------------------+------------------+
-|      FRONTEND        |      BACKEND       |      MOBILE APP  |
-| (Next.js Dashboard)  |  (NestJS REST API) |  (Flutter Client)|
-+----------------------+--------------------+------------------+
-| Auth (JWT)           | Prisma ORM / DB    | Maps Integration |
-| Admin Management     | Centers & News API | Offline Data     |
-| RTL & UI Components  | Role-Based Access  | Activity Explorer |
-+----------------------+--------------------+------------------+
-```
+The **Ministry of Youth & Sports Management System** provides a unified platform that empowers both the public and ministry administrators. By combining modern mobile technology, a dynamic web dashboard, and a scalable backend, the system delivers:
 
----
-
-## 🤝 Contribution
-
-Contributions are welcome!
-Please follow these steps:
-
-1. Fork the relevant repository.
-2. Create a new branch: `git checkout -b feat/your-feature`.
-3. Make changes and commit with clear messages.
-4. Open a pull request for review.
-
-### 💡 Ministry of Youth & Sports — Empowering Digital Access to Youth and Sports Nationwide.
-
+* Faster access to information
+* Improved engagement and outreach
+* Streamlined internal operations
+* A more connected youth and sports ecosystem
