@@ -1,173 +1,160 @@
-# 🏟️ Ministry of Youth & Sports Management System
+# Ministry of Youth & Sports Management System
 
-A comprehensive digital ecosystem designed to modernize and digitize the operations of the Ministry of Youth and Sports.
-This system bridges the gap between the ministry and the public through a user-friendly **mobile application**, while streamlining management and administrative workflows through a powerful **web dashboard**.
-All components are powered by a secure and scalable **backend API**.
+A multi-application digital platform built to support public access to youth and sports information while giving administrators a structured system for managing centers, activities, news, and related operational content.
 
----
+The ecosystem is composed of three connected applications:
 
-## 🌟 Project Overview
+- **Web Client** — public landing experience + administrative dashboard
+- **Backend API** — authentication, content/facility data, media handling, and shared business logic
+- **Mobile App** — public-facing Flutter application for browsing ministry-related information and facilities
 
-The core mission of this project is to:
+> The repositories are private, while the organization profile documents the product architecture and engineering scope at a high level.
 
-* Enhance accessibility to youth and sports facilities.
-* Promote transparency and engagement with the public.
-* Digitize administrative operations and content management.
-* Provide an integrated platform for information, activities, and communication.
+## Product Scope
 
-The system is built on **three synchronized tracks**:
+The platform supports two main audiences:
 
-1. **Mobile Application (Public Portal)**
-2. **Web Dashboard (Admin Panel)**
-3. **Backend API (Central Logic & Data Source)**
+### Public / Citizen Experience
 
----
+- Browse youth centers and sports-related facilities
+- Explore clubs, swimming pools, open stadiums, and specialized clubs
+- Read news and activities
+- Access location-related information and map directions
+- Consume rich media and informational content through the mobile experience
 
-## 🚀 Key Features
+### Administration Experience
 
-### 📱 Mobile Application (Citizen Portal)
+- Authenticated dashboard access
+- Manage youth centers and facility records
+- Create, update, and delete activities
+- Create, update, and delete news content
+- Manage location-aware content through map-enabled interfaces
+- Publish operational content consumed by public-facing clients
 
-A centralized hub for the community to explore youth and sports services.
+## System Architecture
 
-#### **Directory Services**
-
-* Sports Clubs listings
-* Youth Centers with details and locations
-* Specialized Technology Clubs & Open Clubs
-* Swimming pools and open stadiums directory
-
-#### **Engagement**
-
-* Real-time news feed and announcements
-* Browse and view upcoming activities and events
-* Quick access contact channels with the ministry
-
-#### **User Experience**
-
-* Integrated map directions (external maps)
-* Rich media: sliders, galleries, and detailed pages
-
----
-
-### 💻 Web Dashboard (Admin Panel)
-
-A complete management system for ministry administrators.
-
-#### **Core Features**
-
-* **Content Management:** Create / update / delete news and activities
-* **Facility Management:** Manage youth centers, clubs, and facility data
-* **Secure Authentication:** Role-based access, JWT-based
-* **Interactive Maps:** Visual management of location data
-* **Real-time updates** for mobile clients
-
----
-
-### ⚙️ Backend API
-
-The backbone that powers both the mobile and web applications.
-
-#### **Key Functionalities**
-
-* **RESTful API Architecture**
-* JWT authentication and session management
-* Rate limiting and API security
-* File uploads (images & media)
-* Entities: Activities, News, Centers, Users, Federations, etc.
-
----
-
-## 🛠️ Technology Stack
-
-| Component        | Technology            | Key Libraries                                       |
-| ---------------- | --------------------- | --------------------------------------------------- |
-| **Client (Web)** | Next.js 15 (React 19) | TypeScript, Tailwind CSS 4, Radix UI, GSAP, Leaflet |
-| **Mobile App**   | Flutter               | Dart, BLoC (State Management), Dio                  |
-| **Backend**      | Node.js / Express     | MongoDB (Mongoose), JWT, Bcrypt, Multer             |
-
----
-
-## 📂 High-Level Project Structure
-
-```
-project/
-├─ client/         # Next.js web application
-├─ backend/        # Express.js backend API
-└─ mobile_app/     # Flutter mobile application
+```text
+                    ┌──────────────────────┐
+                    │   Backend REST API   │
+                    │ Express + MongoDB    │
+                    └──────────┬───────────┘
+                               │
+                 ┌─────────────┴─────────────┐
+                 │                           │
+        ┌────────▼────────┐         ┌────────▼────────┐
+        │   Web Client    │         │   Mobile App    │
+        │ Next.js / React │         │ Flutter / Dart  │
+        └─────────────────┘         └─────────────────┘
 ```
 
----
+The backend is the shared data and authentication layer for both client applications.
 
-# 🧩 Architecture & Folder Structure
+## Technology Stack
 
-Below is the detailed breakdown for each track.
+| Component | Core Technology | Supporting Libraries / Tools |
+| --- | --- | --- |
+| **Web Client** | Next.js 15, React 19, TypeScript | Tailwind CSS 4, React Hook Form, Zod, Radix UI, GSAP, Leaflet, Sonner |
+| **Backend API** | Node.js, Express 4 | MongoDB, Mongoose, JWT, Cloudinary, Multer, Helmet, rate limiting, Winston |
+| **Mobile App** | Flutter, Dart | BLoC, Dio, Carousel Slider, URL Launcher |
 
----
+## Web Client
 
-## 🌐 Frontend (Next.js)
+The web repository combines a public information website with a protected administrative dashboard.
 
-```
+### Main capabilities
+
+- Public landing and informational sections
+- Administrator authentication
+- Center management
+- Activity management
+- News management
+- Schema-driven CRUD forms using React Hook Form + Zod
+- Map-enabled location interfaces with Leaflet
+- RTL / Arabic-first UI
+- Loading, feedback, and responsive states
+
+### Frontend structure
+
+```text
 src/
-├─ app/                     # Next.js routes (landing, dashboard, auth)
-├─ components/
-│  ├─ auth/                 # Authentication forms and components
-│  ├─ dashboard/            # Dashboard widgets and UI blocks
-│  ├─ global/               # Shared UI (map, loaders, selectors)
-│  └─ ui/                   # Core UI primitives (buttons, modals, inputs)
-├─ hooks/                   # Custom hooks (auth, API)
-├─ lib/                     # Zod schemas and validations
-├─ providers/               # Auth and context providers
-├─ types/                   # TypeScript interfaces and types
-└─ utils/                   # API utilities and helpers
+├── app/                 # Next.js routes, landing pages, dashboard and auth
+├── components/          # Feature, global and UI components
+├── constants/           # Shared content/configuration
+├── hooks/               # Reusable React hooks
+├── lib/                 # Validation schemas and shared helpers
+├── providers/           # Authentication/context providers
+├── types/               # TypeScript contracts
+└── utils/               # API utilities grouped by domain
 ```
 
----
+## Backend API
 
-## 🖥️ Backend (Node.js / Express with Prisma)
+The backend is an **Express + MongoDB/Mongoose** service organized around conventional Node.js application layers.
 
-```
+```text
 src/
-├─ app.module.ts            # Root module
-├─ main.ts                  # App entry point
-├─ auth/                    # Authentication (JWT, guards)
-├─ users/                   # User and role management
-├─ centers/                 # Centers CRUD operations
-├─ activities/              # Activities management
-├─ news/                    # News module
-├─ files/                   # File uploads and storage
-├─ common/                  # Shared utilities and decorators
-├─ prisma/                  # Prisma schema and service
-└─ config/                  # Environment and settings
+├── app.js               # Application bootstrap
+├── config/              # Environment and infrastructure configuration
+├── controllers/         # Request handlers
+├── middleware/          # Authentication, validation and security middleware
+├── models/              # Mongoose models
+├── routes/              # REST API routes
+└── utils/               # Shared helpers
 ```
 
----
+### Backend capabilities
 
-## 📱 Mobile (Flutter)
+- RESTful API architecture
+- JWT-based authentication
+- MongoDB persistence through Mongoose
+- Media/file upload handling
+- Cloudinary integration
+- Request rate limiting
+- Security hardening with Helmet, sanitization and HPP/XSS protections
+- Structured request/application logging
+- Jest + Supertest testing setup
 
-```
-android/        # Android native configuration
-ios/            # iOS native configuration
-lib/
-├─ models/      # Data models
-├─ modules/     # Screens (home, clubs, activities, etc.)
-├─ layout/      # State management (Cubit/Bloc)
-├─ shared/      # Common components, themes, helpers, networking
-└─ main.dart    # App entry point
-assets/         # Local JSON datasets (centers, clubs, federations)
-test/           # Unit & widget tests
-web/            # Web app entry
-windows/        # Desktop build target
-macos/
-linux/
-```
+## Mobile Application
 
----
+The Flutter application acts as the public mobile experience and consumes the shared backend APIs.
 
-## 📑 Conclusion
+Its current technology foundation includes:
 
-The **Ministry of Youth & Sports Management System** provides a unified platform that empowers both the public and ministry administrators. By combining modern mobile technology, a dynamic web dashboard, and a scalable backend, the system delivers:
+- Flutter / Dart
+- BLoC for state management
+- Dio for API communication
+- Carousel and media-focused interfaces
+- URL launcher integration
+- Local data assets for clubs, federations, swimming pools, technical clubs, and open stadiums
 
-* Faster access to information
-* Improved engagement and outreach
-* Streamlined internal operations
-* A more connected youth and sports ecosystem
+## Repositories
+
+| Repository | Responsibility | Visibility |
+| --- | --- | --- |
+| `Ministry-Of-Youth-Sports/client` | Next.js public website + admin dashboard | Private |
+| `Ministry-Of-Youth-Sports/backend` | Express / MongoDB REST API | Private |
+| `Ministry-Of-Youth-Sports/mobile_app` | Flutter public mobile application | Private |
+| `Ministry-Of-Youth-Sports/.github` | Public organization profile and project overview | Public |
+
+## Web Deployment
+
+The web client repository references the deployed frontend at:
+
+**https://ministryyouthsports.vercel.app**
+
+## Engineering Practices
+
+Across the platform, the repositories use patterns such as:
+
+- Separation of UI, API access, validation, and domain utilities
+- Feature-oriented frontend organization
+- Schema-driven forms and validation
+- Backend controller / model / route separation
+- Authentication middleware and protected routes
+- Environment-based configuration
+- Security-focused API middleware
+- Automated backend testing
+
+## Project Status
+
+This repository set represents the completed platform implementation delivered for the project. Individual components may still receive maintenance or operational updates over time.
