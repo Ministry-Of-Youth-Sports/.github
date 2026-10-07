@@ -19,7 +19,52 @@ The applications are separate, but they are not unrelated. The web dashboard pub
 
 ---
 
+## Product Visual Preview
+
+These are the **approved Ministry of Youth & Sports platform visuals** hosted on Cloudinary. The same image assets are used across the web-client repository and organization profile so reviewers see one consistent product presentation.
+
+### Public Experience
+
+<p align="center">
+  <img src="https://res.cloudinary.com/dqs43oqer/image/upload/v1791410348/ChatGPT_Image_Oct_8_2026_12_58_17_AM-1_t0eq5q.png" alt="Public Home / Hero" width="100%" />
+</p>
+
+<table>
+  <tr>
+    <td width="50%"><strong>About / Digital Transformation Journey</strong><br /><img src="https://res.cloudinary.com/dqs43oqer/image/upload/v1791410348/ChatGPT_Image_Oct_8_2026_12_58_19_AM-2_ccxb2w.png" alt="About / Digital Transformation Journey" /></td>
+    <td width="50%"><strong>Cairo Coverage / Organizations Map</strong><br /><img src="https://res.cloudinary.com/dqs43oqer/image/upload/v1791410348/ChatGPT_Image_Oct_8_2026_12_58_28_AM-3_nwelqq.png" alt="Cairo Coverage / Organizations Map" /></td>
+  </tr>
+  <tr>
+    <td width="50%"><strong>Platform Features</strong><br /><img src="https://res.cloudinary.com/dqs43oqer/image/upload/v1791410348/ChatGPT_Image_Oct_8_2026_12_58_30_AM-4_vwu4ke.png" alt="Platform Features" /></td>
+    <td width="50%"><strong>Download App</strong><br /><img src="https://res.cloudinary.com/dqs43oqer/image/upload/v1791410363/ChatGPT_Image_Oct_8_2026_12_58_32_AM-5_zu3jwd.png" alt="Download App" /></td>
+  </tr>
+</table>
+
+### Administration Experience
+
+<p align="center">
+  <img src="https://res.cloudinary.com/dqs43oqer/image/upload/v1791410362/ChatGPT_Image_Oct_8_2026_12_58_37_AM-7_cwssvr.png" alt="Youth Centers Management" width="100%" />
+</p>
+
+<table>
+  <tr>
+    <td width="50%"><strong>Admin Login</strong><br /><img src="https://res.cloudinary.com/dqs43oqer/image/upload/v1791410363/ChatGPT_Image_Oct_8_2026_12_58_34_AM-6_sxikoq.png" alt="Admin Login" /></td>
+    <td width="50%"><strong>Youth Center Details</strong><br /><img src="https://res.cloudinary.com/dqs43oqer/image/upload/v1791410363/ChatGPT_Image_Oct_8_2026_12_58_39_AM-8_xh8ye9.png" alt="Youth Center Details" /></td>
+  </tr>
+  <tr>
+    <td width="50%"><strong>Activities & Programs Management</strong><br /><img src="https://res.cloudinary.com/dqs43oqer/image/upload/v1791410341/ChatGPT_Image_Oct_8_2026_12_58_41_AM-9_lmtgyq.png" alt="Activities & Programs Management" /></td>
+    <td width="50%"><strong>News Management</strong><br /><img src="https://res.cloudinary.com/dqs43oqer/image/upload/v1791410346/ChatGPT_Image_Oct_8_2026_12_58_43_AM-10_mev0dj.png" alt="News Management" /></td>
+  </tr>
+</table>
+
+> These visuals use sample content for portfolio and repository presentation. They do not expose authenticated production credentials or sensitive operational records.
+
+
+---
+
 ## Table of Contents
+
+- [Product Visual Preview](#product-visual-preview)
 
 - [What This Platform Is](#what-this-platform-is)
 - [Why It Exists](#why-it-exists)
