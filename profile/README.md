@@ -17,6 +17,13 @@ The organization is built around three connected repositories:
 
 The applications are separate, but they are not unrelated. The web dashboard publishes and maintains operational content through the backend; the backend stores and protects the authoritative records; public web and mobile experiences consume those records and supporting reference data.
 
+
+<!-- PROJECT_BANNER_START -->
+<p align="center">
+  <img src="https://res.cloudinary.com/dqs43oqer/image/upload/v1791414971/ChatGPT_Image_Oct_8_2026_02_15_16_AM-4_sschrj.png" alt="Ministry of Youth & Sports Project Banner" width="100%" />
+</p>
+<!-- PROJECT_BANNER_END -->
+
 ---
 
 ## Product Visual Preview
